@@ -13,6 +13,11 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
+  "standard": {
+    "ignore": [
+      "/docs/**/*.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ms10398/openfoodfacts-nodejs.git"
