@@ -7,7 +7,7 @@ const defaultOptions = {
 /** Class OFF Node API Wrappper of OFF API */
 class OFF {
   /**
-   * Create OFF object
+   * Create OFF Object
    * @param {Object} options - Options for the OFF Object
    * @param {string} options.country - Country for which you want to call OFF API Client
    */
