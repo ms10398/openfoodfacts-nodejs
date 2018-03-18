@@ -11,7 +11,7 @@ class OFF {
    * @param {Object} options - Options for the OFF Object
    * @param {string} options.country - Country for which you want to call OFF API Client
    */
-  constructor (options = defaultOptions) {
+  constructor (options: Object = defaultOptions) {
     this.options = options
     this.URL = `https://${options.country}.openfoodfacts.org`
   }
@@ -19,7 +19,7 @@ class OFF {
    * It is used to set option in OFF instance
    * @return {Object} An OFF Instance with option set
    */
-  setOption (option, value) {
+  setOption (option, value) : Object {
     return new OFF({
       [option]: value
     })
@@ -32,7 +32,7 @@ class OFF {
    * const worldOFF = new OFF()
    * const indiaOFF = worldOFF.country('in')
    */
-  country (country = defaultOptions.country) {
+  country (country: string = defaultOptions.country) : Object {
     return this.setOption('country', country)
   }
 
@@ -46,7 +46,7 @@ class OFF {
    *   // use brands
    * })
    */
-  getBrands () {
+  getBrands () : Object {
     return request(`${this.URL}/brands.json`)
       .then(JSON.parse)
   }
@@ -61,7 +61,7 @@ class OFF {
    *   // use product
    * })
    */
-  getProduct (barcode) {
+  getProduct (barcode: number) : Object {
     return request(`${this.URL}/api/v0/${barcode}`)
       .then(JSON.parse)
   }
@@ -76,7 +76,7 @@ class OFF {
    *   // use brand
    * })
    */
-  getBrand (brandName) {
+  getBrand (brandName: string) : Object {
     return request(`${this.URL}/brand/${brandName}.json`)
       .then(JSON.parse)
   }
@@ -90,7 +90,7 @@ class OFF {
    *   // use languages
    * })
    */
-  getLanguages () {
+  getLanguages () : Object {
     return request(`${this.URL}/languages.json`)
       .then(JSON.parse)
   }
@@ -104,7 +104,7 @@ class OFF {
    *   // use labels
    * })
    */
-  getLabels () {
+  getLabels () : Object {
     return request(`${this.URL}/labels.json`)
       .then(JSON.parse)
   }
@@ -119,7 +119,7 @@ class OFF {
    *   // use products
    * })
    */
-  getProductsByBarcodeBeginning (beginning) {
+  getProductsByBarcodeBeginning (beginning: string) : Object {
     const fill = 'x'.repeat(13 - beginning.length)
     const barcode = beginning.concat(fill)
     return request(`${this.URL}/code/${barcode}.json`)
